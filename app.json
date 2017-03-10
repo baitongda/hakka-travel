@@ -18,23 +18,24 @@
     "navigationBarTextStyle":"white"
   },
   "tabBar": {
+    "backgroundColor": "#000",
     "list": [{
       "pagePath": "pages/index/index",
       "text": "预订",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath",
+      "iconPath": "images/footer-icon-02.png",
+      "selectedIconPath": "images/footer-icon-02-active.png",
       "selectedColor": "#000"
     },{
       "pagePath": "pages/ticket/ticket",
       "text": "车票",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath",
+      "iconPath": "images/icon_normal.png",
+      "selectedIconPath": "images/icon_pressed.png",
       "selectedColor": "#242233"
     }, {
       "pagePath": "pages/user/user",
       "text": "我的",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath",
+      "iconPath": "images/footer-icon-04.png",
+      "selectedIconPath": "images/footer-icon-04-active.png",
       "selectedColor": "#656565"
     }]
   },
