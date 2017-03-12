@@ -1,25 +1,58 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
 .swiper {
   width: 100%;
+}
+
+image {
+  width: 100%;
+  height: 350rpx;
+}
+
+.content-wrapper {
+	padding: 0 20rpx;
+}
+
+.city-selection-wrapper {
+	border-bottom: 2rpx solid #c3c3c3;
+}
+
+.city-selection, .exchange-btn {
+	display: inline-block;
+}
+
+.city-selection {
+	width: 80%;
+}
+
+.city-selection view, .date-selection-wrapper {
+	position: relative;
+	height: 80rpx;
+	padding: 10rpx 0;
+	line-height: 60rpx;
+}
+
+.city-selection text {
+	margin-left: 80rpx;
+}
+
+.start-city {
+	border-bottom: 2rpx solid #c3c3c3;
+}
+
+.exchange-btn {
+	position: relative;
+	height: 120rpx;
+  width: 20%;
+}
+.decoration-icon {
+	width: 44rpx; 
+	height: 44rpx;
+}
+
+.right-btn {
+	right: 20rpx;
+}
+
+.date-picker {
+	margin-left: 80rpx;
 }

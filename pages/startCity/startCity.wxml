@@ -1,10 +1,14 @@
-<!--index.wxml-->
+<!--startCity.wxml-->
+<import src="../components/stationList/template.wxml"></import>
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+	<view class="title">
+		可选择的出发城市:
+	</view>
+	<view class="city-list">
+		<view class="city-item {{chosenCityIndex == index? 'active': ''}}" wx:for="{{startCityList}}" wx:key="{{index}}"
+			bindtap="chooseCity" data-index="{{index}}">{{item.name}}</view>
+	</view>
+	
+	<template is="stationList" data="{{...startStation}}"></template> 
+	<view class="default-btn" bindtap="check">车票查询</view>
 </view>

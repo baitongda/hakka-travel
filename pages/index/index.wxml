@@ -11,10 +11,45 @@
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoPlay}}"  interval="3000" duration="700">
     <block wx:for="{{imgUrls}}">
       <swiper-item>
-        <image src="{{item}}" class="silde-image" width="355" height="150"></image>
+        <image src="{{item}}" class="silde-image"></image>
       </swiper-item>
     </block>
   </swiper>
 
-  <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map>
+  <!-- <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map> -->
+  
+  <!-- outer view -->
+  <view class="content-wrapper">
+    <!-- city selection wrapper -->
+    <view class="city-selection-wrapper">
+        <view class="city-selection">
+          <view class="start-city" bindtap="selectStartCity">
+            <icon class="absolute-center-Y decoration-icon" type="circle" size="22" color="red" />
+            <text>{{startCity}}</text>
+            <icon class="absolute-center-Y decoration-icon right-btn" type="search" size="22" />
+          </view>
+          <view class="end-city" bindtap="selectEndCity">
+            <icon class="absolute-center-Y decoration-icon" type="circle" size="22" color="blue" />
+            <text>{{endCity}}</text>
+            <icon class="absolute-center-Y decoration-icon right-btn" type="search" size="22" />
+          </view>
+        </view>
+        <view class="exchange-btn" bindtap="exchangeCity">
+          <icon class="absolute-center-XY" type="success" size="36"></icon>
+        </view>
+    </view>
+
+    <!-- date -->
+    <view class="date-selection-wrapper">
+      <icon class="absolute-center-Y decoration-icon" type="waiting_circle" size="22" />
+      <picker class="date-picker" mode="date" value="{{selectedDate}}" start="{{startDate}}" end="{{endDate}}" bindchange="changeDate">
+        <view class="selected-date">
+          {{selectedDate}}
+          
+        </view>
+      </picker>
+    </view>
+  </view>
+  
+  <view class="default-btn">立即查询</view>
 </view>
