@@ -3,24 +3,49 @@
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
+  	curDate: '2017-03-13 星期一',
+    scheduleList: [
+    	{
+    		time: '10:10',
+    		startStation: '北理工正门',
+    		endStation: '深大南门',
+    		benefitTicket: '优惠票35元可预订',
+    		normalTicket: '正价票55元可预订'
+    	},
+    	{
+    		time: '10:10',
+    		startStation: '北理工正门',
+    		endStation: '深大南门',
+    		benefitTicket: '优惠票35元可预订',
+    		normalTicket: '正价票55元可预订'
+    	},
+    	{
+    		time: '10:10',
+    		startStation: '北理工正门',
+    		endStation: '深大南门',
+    		benefitTicket: '优惠票35元可预订',
+    		normalTicket: '正价票55元可预订'
+    	},
+    ]
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+  
   onLoad: function () {
     console.log('onLoad')
     var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
+    
+  },
+  booking() {
+  	wx.navigateTo({
+			url: '../order/order',
+			success: function(res){
+				// success
+			},
+			fail: function() {
+				// fail
+			},
+			complete: function() {
+				// complete
+			}
+		})
   }
 })

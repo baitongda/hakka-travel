@@ -29,7 +29,7 @@ Page({
 		    ]
 	  }
   },
-  onLoad: function () {
+  onLoad() {
     console.log('onLoad')
     var that = this;
     // wx.getStorage({
@@ -62,24 +62,19 @@ Page({
     //   }
     // })
   },
-  check: function() {
+  check() {
     wx.navigateBack({
       delta: 1, // 回退前 delta(默认为1) 页面
     })
   },
-  chooseCity: function(event) {
-//	this.data.startCityList.forEach(function(item) {
-//		item.color = '#999';
-//	})
+  chooseCity(event) {
   	var index = event.target.dataset.index;
-//	var _startCityList = this.data.startCityList.slice();
-//	_startCityList[index].color = '#ed422f';
 		this.setData({
 			chosenCity: this.data.startCityList[index].name,
 			chosenCityIndex: index
 		})
   },
-  chooseStation: function(event) {
+  chooseStation(event) {
   	var index = event.target.dataset.index;
   	this.setData({
   		'startStation.chosenIndex': index

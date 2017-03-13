@@ -21,21 +21,21 @@ Page({
       //     // complete
       //   }
       // })
-      wx.chooseLocation({
-        success: function(res){
-          var latitude = res.latitude
-          var longitude = res.longitude
-          var address = res.address
-          var name = res.name
-           console.log('latitude: ' + latitude + '    longitude:' + longitude + ' address: ' + res.address + ' name: '+ name);
-        },
-        fail: function() {
-          // fail
-        },
-        complete: function() {
-          // complete
-        }
-      })
+//    wx.chooseLocation({
+//      success: function(res){
+//        var latitude = res.latitude
+//        var longitude = res.longitude
+//        var address = res.address
+//        var name = res.name
+//         console.log('latitude: ' + latitude + '    longitude:' + longitude + ' address: ' + res.address + ' name: '+ name);
+//      },
+//      fail: function() {
+//        // fail
+//      },
+//      complete: function() {
+//        // complete
+//      }
+//    })
   },
   onShow: function() {
       // 监听页面显示，每次打开都会调用
@@ -168,6 +168,21 @@ regionchange(e) {
       success: function(res){
         // success
         console.log('navigate to endCity page')
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
+  checkSchedule(){
+    wx.navigateTo({
+      url: '../schedule/schedule',
+      success: function(res){
+        // success
+        console.log('navigate to schedule page');
       },
       fail: function() {
         // fail

@@ -1,26 +1,29 @@
-//index.js
+//order.js
 //获取应用实例
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+   	order: {
+   		datetime: '2017-03-13 19:35',
+   		startCity: '珠海',
+   		endCity: '深圳',
+   		startStation: '北理工正门',
+   		endStation: '深大北门',
+   		normalLeavings: 20,
+   		normalPrice: 55,
+   		benefitLeavings: 2,
+   		benefitPrice: 35,
+   		adultTicketNum: 1,
+   		childrenTicketNum: 0,
+   		passenger: '',
+   		passengerPhone: ''
+   	}
   },
   onLoad: function () {
     console.log('onLoad')
     var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
+  },
+  goPay() {
+  	
   }
 })

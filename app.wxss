@@ -53,3 +53,14 @@ view {
 	background: linear-gradient(to right, orange, red);
 }
 
+
+/**
+ *  image position
+ * */
+.img-left-10 {
+	left: 10rpx;
+}
+
+.img-right-10 {
+	right: 10rpx;
+}

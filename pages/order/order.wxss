@@ -1,21 +1,141 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/**order.wxss**/
+
+image {
+	width: 28rpx;
+	height: 28rpx;	
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.top-wrapper {
+	padding: 15rpx;
+	background: linear-gradient(to bottom, orange, red);
+	color: #fff;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+
+.order-datetime {
+	height: 40rpx;
+	line-height: 30rpx;
+	padding: 5rpx 0;
+	text-align: center;
 }
 
-.usermotto {
-  margin-top: 200px;
+.order-city {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.order-city text {
+	flex: 1;
+	height: 70rpx;
+	line-height: 70rpx;
+	padding: 10rpx 0;
+	text-align: center;
+}
+
+
+.order-station {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+.order-station text {
+	flex: 1;
+	max-width: 35%;
+	height: 70rpx;
+	padding: 5rpx;
+	font-size: 26rpx;
+	overflow: hidden;
+	text-align: center;
+	overflow: hidden;
+}
+
+.order-ticket {
+	padding: 10rpx;
+	font-size: 28rpx;
+}
+
+.ticket-type {
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+	height: 54rpx;
+	line-height: 44rpx;
+	padding: 5rpx 0;
+	border-bottom: 2rpx solid #999;
+}
+
+.ticket-type text {
+	flex: 1;
+	max-width: 25%;
+	text-align: center;
+}
+
+.ticket-number {
+	height: 50rpx;
+	line-height: 40rpx;
+	padding: 5rpx 0;
+	border-bottom: 2rpx solid #999;
+}
+
+.order-tip {
+	margin: 5rpx 0 15rpx;
+	padding: 5rpx 20rpx;
+	color: red;
+	font-size: 22rpx;
+}
+
+.order-contact {
+	margin-bottom: 20rpx;
+}
+
+.contact-item {
+	height: 40rpx;
+	line-height: 30rpx;
+	padding: 5rpx 10rpx;
+}
+
+.contact-item view {
+	margin-left: 50rpx;
+}
+
+
+.order-pay-type {
+	padding: 5rpx 10rpx;
+}
+
+.order-pay-type view {
+	height: 60rpx;
+	line-height: 60rpx;
+}
+
+.order-pay-type view text {
+	margin-left: 80rpx;
+}
+
+.order-pay {
+	display: flex;
+	flex-flow: row nowrap;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 80rpx;
+	line-height: 80rpx;
+	border-top: 1rpx solid orangered;
+}
+
+.order-pay text {
+	flex: 2;
+}
+
+.order-pay .total-price {
+	padding-left: 20rpx;
+}
+
+.order-pay .pay-btn {
+	flex: 1;
+	text-align: center;
+	background: linear-gradient(to right, orange, red);
+	color: #fff;
 }
