@@ -5,6 +5,7 @@ image {
 	height: 28rpx;	
 }
 
+/* top wrapper */
 .top-wrapper {
 	padding: 15rpx;
 	background: linear-gradient(to bottom, orange, red);
@@ -49,7 +50,10 @@ image {
 	text-align: center;
 	overflow: hidden;
 }
+/* end top wrapper */
 
+
+/* order ticket */
 .order-ticket {
 	padding: 10rpx;
 	font-size: 28rpx;
@@ -66,18 +70,43 @@ image {
 }
 
 .ticket-type text {
-	flex: 1;
+	flex: 1; 
 	max-width: 25%;
 	text-align: center;
 }
 
 .ticket-number {
-	height: 50rpx;
-	line-height: 40rpx;
-	padding: 5rpx 0;
+	display: flex;
+	flex-flow: row nowrap;
 	border-bottom: 2rpx solid #999;
 }
 
+.ticket-number view {
+	position: relative;
+	flex: 2;
+	height: 60rpx;
+	line-height: 60rpx;
+	font-size: 24rpx;
+	padding: 0 30rpx;
+	max-width: 45%;
+}
+
+.ticket-number .number-select {
+	max-width: 25%;
+}
+
+.ticket-number .number-select text{
+	display: inline-block;
+	width: 50rpx;
+	height: 30rpx;
+	line-height: 30rpx;
+	text-align: center;
+	border: 2rpx solid #999;
+}
+/* end order ticket */
+
+
+/* order tip*/
 .order-tip {
 	margin: 5rpx 0 15rpx;
 	padding: 5rpx 20rpx;
@@ -85,32 +114,56 @@ image {
 	font-size: 22rpx;
 }
 
+
+/* order contact */
+.contact-title {
+	padding-left: 20rpx;
+	font-size: 30rpx;
+}
+
 .order-contact {
+	margin-top: 10rpx;
 	margin-bottom: 20rpx;
 }
 
 .contact-item {
-	height: 40rpx;
-	line-height: 30rpx;
+	position: relative;
 	padding: 5rpx 10rpx;
+	border-bottom: 2rpx solid #999;
+	font-size: 26rpx;
 }
 
 .contact-item view {
 	margin-left: 50rpx;
 }
+/* end order contact */
 
+
+/* order pay type */
+.pay-type-title{
+	padding-left: 10rpx;
+	font-size: 30rpx;
+}
 
 .order-pay-type {
 	padding: 5rpx 10rpx;
 }
 
 .order-pay-type view {
+	position: relative;
 	height: 60rpx;
 	line-height: 60rpx;
+	margin-bottom: 10rpx;
+}
+
+.order-pay-type view image {
+	width: 50rpx;
+	height: 50rpx;
 }
 
 .order-pay-type view text {
 	margin-left: 80rpx;
+	font-size: 26rpx;
 }
 
 .order-pay {
@@ -139,3 +192,4 @@ image {
 	background: linear-gradient(to right, orange, red);
 	color: #fff;
 }
+/* end order pay type */

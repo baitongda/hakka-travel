@@ -34,18 +34,18 @@
   	</view>
   	<view class="ticket-number order-ticket-number-adult">
   		<view>成人票数量（最多三张）</view>
-  		<view>
-  			<image class="absolute-center-Y" src="../../images/btn_diff.png"></image>
-  			<text>{{order.adultTicketNum}}</text>
-  			<image class="absolute-center-Y" src="../../images/btn_add.png"></image>
+  		<view class="number-select">
+  			<image class="absolute-center-Y img-left-10" src="../../images/btn_diff.png"></image>
+  			<text class="absolute-center-XY">{{order.adultTicketNum}}</text>
+  			<image class="absolute-center-Y img-right-10" src="../../images/btn_add.png"></image>
   		</view>
   	</view>
   	<view class="ticket-number order-ticket-number-children">
-  		<view>儿童票数量（最多三张</view>
-  		<view>
-  			<image class="absolute-center-Y" src="../../images/btn_diff.png"></image>
-  			<text>{{order.childrenTicketNum}}</text>
-  			<image class="absolute-center-Y" src="../../images/btn_add.png"></image>
+  		<view>儿童票数量（最多三张）</view>
+  		<view class="number-select">
+  			<image class="absolute-center-Y img-left-10" src="../../images/btn_diff.png"></image>
+  			<text class="absolute-center-XY">{{order.childrenTicketNum}}</text>
+  			<image class="absolute-center-Y img-right-10" src="../../images/btn_add.png"></image>
   		</view>
   	</view>
   </view>
@@ -55,25 +55,25 @@
   </view>
   
   <!-- contact -->
-  <text>联系方式</text>
+  <text class="contact-title">联系方式</text>
   <view class="order-contact">
   	<view class="contact-item">
-  		<image class="absolute-center-Y" src="../../images/mine.png"></image>
+  		<image class="absolute-center-Y img-left-20" src="../../images/mine.png"></image>
   		<view>
-  			<input type="text" placeholder="联系人姓名" value="{{order.passenger}}" />
+  			<input type="text" placeholder="联系人姓名" bindinput="bindInputPassenger" />
   		</view>
   	</view>
   	<view class="contact-item">
-  		<image class="absolute-center-Y" src="../../images/mine.png"></image>
+  		<image class="absolute-center-Y img-left-20" src="../../images/mine.png"></image>
   		<view>
-  			<input type="text" placeholder="联系人手机" value="{}" />
+  			<input type="text" placeholder="联系人手机" bindinput="bindInputPassengerPhone" />
   		</view>
   	</view>
   </view>
   
-  <!-- pay type-->
+  <!-- pay type--> 
   <view class="order-pay-type">
-  	<text>请选择支付方式</text>
+  	<text class="pay-type-title">请选择支付方式</text>
   	<view>
   		<image class="absolute-center-Y img-left-10" src="../../images/get_on_pay.png"></image>
   		<text>上车支付</text>

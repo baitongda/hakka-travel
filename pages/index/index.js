@@ -1,12 +1,15 @@
 //index.js
+
+var dateUtil = require('../../utils/date.js');
 //获取应用实例
 var app = getApp()
 Page({
   onLoad: function(options) {
       // 监听页面加载 只调用一次
-      
+      console.log(111);
   },
   onReady: function() {
+    console.log(222);
       // 监听页面初次渲染完成 (初始化数据)
       // wx.getLocation({
       //   type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
@@ -38,9 +41,37 @@ Page({
 //    })
   },
   onShow: function() {
+    let that = this;
+    console.log(333);
       // 监听页面显示，每次打开都会调用
+      wx.getStorage({
+        key: 'startCity',   
+        success: function(res){
+          // success
+          console.log(res);
+          if(res) { 
+            that.setData({
+              startCity: res.data
+            })
+          }
+          
+        }
+      })
+
+      wx.getStorage({
+        key: 'endCity',
+        success: function(res){
+          // success
+          if(res) {
+            that.setData({
+              endCity: res.data
+            })
+          }
+        }
+      })
   }, 
   onHide: function() {
+    console.log(444);
       // 监听页面隐藏 当navigateTo或底部tab切换时调用
   },
   onUnload: function() {
@@ -104,9 +135,9 @@ Page({
       clickable: true
     }],
 
-    selectedDate: '2017-03-11',
-    startDate: '2017-03-11',
-    endDate: '2017-03-14',
+    selectedDate: dateUtil.getToday(),
+    startDate: dateUtil.getToday(),
+    endDate: dateUtil.getEndDate(),
     startCity: '请选择出发地点',
     endCity: '请选择到达地点'
   },

@@ -21,9 +21,9 @@
 	display: inline-block;
 	width: 40%;
 	margin: 20rpx;
-	border: 2rpx solid #999;
+	border: 2rpx solid #c3c3c3;
 	border-radius: 10%;
-	color: #999;
+/*	color: #999;*/
 	font-size: 32rpx;
 	padding: 20rpx 10rpx;
 	text-align: center;
@@ -36,6 +36,7 @@
 
 .station-item.active {
 	background: url(../../../images/station_select.png) no-repeat top right;
+	background-size: 44rpx;
 	border-color: #ed422f;
 }
 

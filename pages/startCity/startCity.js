@@ -18,7 +18,6 @@ Page({
     	{ name: '深圳' }
  		],
     queryParam: '',
-    activeColor: '#999',
 		startStation: {
 				chosenIndex: -1,
 	    	stationTitle: '选择上车地点',
@@ -72,12 +71,22 @@ Page({
 		this.setData({
 			chosenCity: this.data.startCityList[index].name,
 			chosenCityIndex: index
-		})
+		});
+    // 通过storage跨页面传数据
+    wx.setStorage({
+      key: 'startCity',
+      data: this.data.chosenCity
+    })
   },
   chooseStation(event) {
   	var index = event.target.dataset.index;
   	this.setData({
+      // chosenStation: this.data.startStation.stationList[index].name,
   		'startStation.chosenIndex': index
-  	})
+  	});
+    wx.setStorage({
+      key: 'startStation',
+      data: this.data.chosenStation
+    })
   }
 })

@@ -1,13 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-  <!--<view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>-->
-
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoPlay}}"  interval="3000" duration="700">
     <block wx:for="{{imgUrls}}">
       <swiper-item>
@@ -24,30 +16,30 @@
     <view class="city-selection-wrapper">
         <view class="city-selection">
           <view class="start-city" bindtap="selectStartCity">
-            <icon class="absolute-center-Y decoration-icon" type="circle" size="22" color="red" />
+            <image src="../../images/location_start.png" class="absolute-center-Y img-small-icon "></image>
             <text>{{startCity}}</text>
-            <icon class="absolute-center-Y decoration-icon right-btn" type="search" size="22" />
+            <image src="../../images/right_dot.png" class="absolute-center-Y img-small-icon img-right-20"></image>
           </view>
           <view class="end-city" bindtap="selectEndCity">
-            <icon class="absolute-center-Y decoration-icon" type="circle" size="22" color="blue" />
+            <image src="../../images/location_end.png" class="absolute-center-Y img-small-icon"></image>
             <text>{{endCity}}</text>
-            <icon class="absolute-center-Y decoration-icon right-btn" type="search" size="22" />
+            <image src="../../images/right_dot.png" class="absolute-center-Y img-small-icon img-right-20"></image>
           </view>
         </view>
         <view class="exchange-btn" bindtap="exchangeCity">
-          <icon class="absolute-center-XY" type="success" size="36"></icon>
+          <image src="../../images/change_icon.png" class="absolute-center-XY img-default-size"></image>
         </view>
     </view>
 
     <!-- date -->
     <view class="date-selection-wrapper">
-      <icon class="absolute-center-Y decoration-icon" type="waiting_circle" size="22" />
+      <image src="../../images/alarm.png" class="absolute-center-Y img-small-icon"></image>
       <picker class="date-picker" mode="date" value="{{selectedDate}}" start="{{startDate}}" end="{{endDate}}" bindchange="changeDate">
         <view class="selected-date">
           {{selectedDate}}
-          
         </view>
       </picker>
+      <image src="../../images/right_dot.png" class="absolute-center-Y img-small-icon img-right-20"></image>
     </view>
   </view>
   

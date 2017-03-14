@@ -3,7 +3,8 @@
 
 .title {
 	padding: 60rpx 0 0 40rpx;
-	font-weight: bold;
+	font-size: 40rpx;
+	color: #333;
 }
 
 .city-list {
@@ -20,15 +21,16 @@
 	height: 70rpx;
 	line-height: 70rpx;
 	text-align: center;
-	border: 2rpx solid;
+	border: 2rpx solid #c3c3c3;
 	border-radius: 10%;
 	margin-left: 20rpx;
 	margin-right: 20rpx;
 	margin-bottom: 20rpx;
-	color: #999;
+/*	color: #999;*/
 }
 
 .city-item.active {
 	background: url(../../images/station_select.png) no-repeat top right;
+	background-size: 32rpx;
 	border-color: #ed422f;
 }

@@ -3,7 +3,8 @@
 
 .title {
 	padding: 60rpx 0 0 40rpx;
-	font-weight: bold;
+	font-size: 40rpx;
+	color: #333;
 }
 
 .city-list {
@@ -30,5 +31,6 @@
 
 .city-item.active {
 	background: url(../../images/station_select.png) no-repeat top right;
+	background-size: 32rpx;
 	border-color: #ed422f;
 }

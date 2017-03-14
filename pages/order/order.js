@@ -23,6 +23,16 @@ Page({
     console.log('onLoad')
     var that = this
   },
+  bindInputPassenger(e) {
+    this.setData({
+      'order.passenger': e.detail.value
+    })
+  },
+  bindInputPassengerPhone(e) {
+    this.setData({
+      'order.passengerPhone': e.detail.value
+    })
+  },
   goPay() {
   	
   }
