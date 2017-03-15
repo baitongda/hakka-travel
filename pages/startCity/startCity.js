@@ -29,26 +29,11 @@ Page({
 	  }
   },
   onLoad() {
-    console.log('onLoad')
     var that = this;
-    // wx.getStorage({
-    //   key: 'endCity',
-    //   success: function(res){
-    //     // success res = {data: key对应的内容}
-    //     if(res.data) {
-    //       that.endCity = res.data;
-    //     }
-    //   },
-    //   fail: function() {
-    //     // fail
-    //   },
-    //   complete: function() {
-    //     // complete
-    //   }
-    // }),
-    // that.setData({
-    //   queryParam: that.data.endCity? 'endCity=' + that.data.endCity: 'allStart=1'
-    // }) 
+
+    let endCity = app.globalData.endCity;
+    this.data.queryParam = endCity != '请选择到达地点'? 'endCity=' + endCity: 'allStart=1';
+    
     // get all start point
     // wx.request({
     //   url: 'http://loaclhost:8080/fr/city/list?' + that.data.queryParam,
@@ -67,26 +52,20 @@ Page({
     })
   },
   chooseCity(event) {
-  	var index = event.target.dataset.index;
+  	let index = event.target.dataset.index;
 		this.setData({
 			chosenCity: this.data.startCityList[index].name,
 			chosenCityIndex: index
 		});
-    // 通过storage跨页面传数据
-    wx.setStorage({
-      key: 'startCity',
-      data: this.data.chosenCity
-    })
+     // 通过app.global跨页面传数据,替换用storage的方式
+    app.globalData.startCity = this.data.chosenCity;
   },
   chooseStation(event) {
-  	var index = event.target.dataset.index;
+  	let index = event.target.dataset.index;
   	this.setData({
-      // chosenStation: this.data.startStation.stationList[index].name,
-  		'startStation.chosenIndex': index
+      'startStation.chosenIndex': index
   	});
-    wx.setStorage({
-      key: 'startStation',
-      data: this.data.chosenStation
-    })
+    app.globalData.startStation = this.data.chosenStation;
   }
 })
+  

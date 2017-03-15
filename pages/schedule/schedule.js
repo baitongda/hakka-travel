@@ -30,22 +30,11 @@ Page({
   },
   
   onLoad: function () {
-    console.log('onLoad')
-    var that = this
     
   },
   booking() {
   	wx.navigateTo({
 			url: '../order/order',
-			success: function(res){
-				// success
-			},
-			fail: function() {
-				// fail
-			},
-			complete: function() {
-				// complete
-			}
 		})
   }
 })

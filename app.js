@@ -1,11 +1,8 @@
 //app.js
+var dateUtil = require('./utils/date.js');
 App({
   onLaunch: function () {
     // 监听小程序初始化,当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
   },
   onShow: function() {
     // 监听小程序显示,当小程序启动，或从后台进入前台显示，会触发 onShow
@@ -36,6 +33,10 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    startCity: '请选择出发地点',
+    endCity: '请选择到达地点',
+    startStation: '',
+    endStation: '',
+    date: dateUtil.getToday()
   }
 })

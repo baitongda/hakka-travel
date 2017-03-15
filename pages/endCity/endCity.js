@@ -29,26 +29,10 @@ Page({
     }
   },
   onLoad: function () {
-    console.log('onLoad')
-    var that = this;
-    // wx.getStorage({
-    //   key: 'startCity',
-    //   success: function(res){
-    //     // success res = {data: key对应的内容}
-    //     if(res.data) {
-    //       that.startCity = res.data;
-    //     }
-    //   },
-    //   fail: function() {
-    //     // fail
-    //   },
-    //   complete: function() {
-    //     // complete
-    //   }
-    // }),
-    // that.setData({
-    //   queryParam: that.data.startCity? 'startCity=' + that.data.startCity: 'allEnd=1'
-    // }) 
+
+    let startCity = app.globalData.startCity;
+    this.data.queryParam = startCity != '请选择出发地点'? 'startCity=' + startCity: 'allStart=1';
+    
     // get all start point
     // wx.request({
     //   url: 'http://loaclhost:8080/fr/city/list?' + that.data.queryParam,
@@ -67,16 +51,18 @@ Page({
     })
   },
   chooseCity: function(event) {
-  	var index = event.target.dataset.index;
+  	let index = event.target.dataset.index;
   	this.setData({
-  		chosenCity: this.data.endCityList[index],
+  		chosenCity: this.data.endCityList[index].name,
   		chosenCityIndex: index
-  	})
+  	});
+    app.globalData.endCity = this.data.chosenCity;
   },
   chooseStation: function(event) {
-  	var index = event.target.dataset.index;
+  	let index = event.target.dataset.index;
   	this.setData({
   		'endStation.chosenIndex': index
-  	})
+  	});
+   app.globalData.endStation = this.data.chosenCity;
   }
 })

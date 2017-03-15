@@ -1,10 +1,5 @@
 /**order.wxss**/
 
-image {
-	width: 28rpx;
-	height: 28rpx;	
-}
-
 /* top wrapper */
 .top-wrapper {
 	padding: 15rpx;
@@ -55,17 +50,16 @@ image {
 
 /* order ticket */
 .order-ticket {
-	padding: 10rpx;
-	font-size: 28rpx;
+	padding: 20rpx 10rpx;
 }
 
 .ticket-type {
 	position: relative;
 	display: flex;
 	flex-flow: row nowrap;
-	height: 54rpx;
-	line-height: 44rpx;
-	padding: 5rpx 0;
+	height: 70rpx;
+	line-height: 60rpx;
+	padding: 10rpx 0;
 	border-bottom: 2rpx solid #999;
 }
 
@@ -84,22 +78,22 @@ image {
 .ticket-number view {
 	position: relative;
 	flex: 2;
-	height: 60rpx;
+	height: 70rpx;
 	line-height: 60rpx;
 	font-size: 24rpx;
-	padding: 0 30rpx;
-	max-width: 45%;
+	padding: 10rpx 30rpx;
+	max-width: 50%;
 }
 
 .ticket-number .number-select {
-	max-width: 25%;
+	max-width: 30%;
 }
 
 .ticket-number .number-select text{
 	display: inline-block;
-	width: 50rpx;
-	height: 30rpx;
-	line-height: 30rpx;
+	width: 56rpx;
+	height: 36rpx;
+	line-height: 36rpx;
 	text-align: center;
 	border: 2rpx solid #999;
 }
@@ -108,17 +102,16 @@ image {
 
 /* order tip*/
 .order-tip {
-	margin: 5rpx 0 15rpx;
+	margin-bottom: 40rpx;
 	padding: 5rpx 20rpx;
 	color: red;
-	font-size: 22rpx;
+	font-size: 24rpx;
 }
 
 
 /* order contact */
 .contact-title {
 	padding-left: 20rpx;
-	font-size: 30rpx;
 }
 
 .order-contact {
@@ -128,9 +121,8 @@ image {
 
 .contact-item {
 	position: relative;
-	padding: 5rpx 10rpx;
+	padding: 10rpx;
 	border-bottom: 2rpx solid #999;
-	font-size: 26rpx;
 }
 
 .contact-item view {
@@ -142,28 +134,27 @@ image {
 /* order pay type */
 .pay-type-title{
 	padding-left: 10rpx;
-	font-size: 30rpx;
 }
 
 .order-pay-type {
-	padding: 5rpx 10rpx;
+	padding: 20rpx 10rpx;
 }
 
 .order-pay-type view {
 	position: relative;
-	height: 60rpx;
-	line-height: 60rpx;
+	height: 70rpx;
+	line-height: 70rpx;
 	margin-bottom: 10rpx;
 }
 
-.order-pay-type view image {
+.order-pay-type .pay-type-icon {
 	width: 50rpx;
 	height: 50rpx;
 }
 
 .order-pay-type view text {
 	margin-left: 80rpx;
-	font-size: 26rpx;
+	font-size: 28rpx;
 }
 
 .order-pay {
