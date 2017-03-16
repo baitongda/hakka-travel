@@ -84,7 +84,12 @@ Page({
     startDate: dateUtil.getToday(),
     endDate: dateUtil.getEndDate(),
     startCity: app.globalData.startCity,
-    endCity: app.globalData.endCity
+    endCity: app.globalData.endCity,
+    toast: {
+      content: '',
+      iconUrl: '../../../images/warning.png',
+      showToast: false
+    }
   },
   // date picker
   changeDate(e) {
@@ -108,20 +113,32 @@ Page({
     })
   },
   checkSchedule(){
+    let that = this;
     let startCity = this.data.startCity;
     let endCity = this.data.endCity;
     if(startCity && startCity == '请选择出发地点') {
-      wx.showToast({
-        title: '请选择出发地点',
-        mask: true
-      })
+      that.setData({
+        'toast.content': '请选择出发地点',
+        'toast.showToast': true
+      });
+      setTimeout(() => {
+        that.setData({
+          'toast.showToast': false
+        })
+      }, 1000);
       return;
     }
+    
     if(endCity && endCity == '请选择到达地点') {
-      wx.showToast({
-        title: '请选择到达地点',
-        icon: ''
-      })
+      that.setData({
+        'toast.content': '请选择到达地点',
+        'toast.showToast': true
+      });
+      setTimeout(() => {
+        that.setData({
+          'toast.showToast': false
+        })
+      }, 1000);
       return;
     }
     wx.navigateTo({
@@ -129,6 +146,17 @@ Page({
       success: function(res){
         console.log('navigate to schedule page');
       }
+    })
+  },
+  exchangeCity() {  // 出发、到达城市互换
+    let startCity = app.globalData.startCity;
+    let endCity = app.globalData.endCity;
+    let temp = endCity == '请选择到达地点'? '请选择出发地点': endCity;
+    app.globalData.endCity = startCity == '请选择出发地点'? '请选择到达地点': startCity;
+    app.globalData.startCity = temp;
+    this.setData({
+      startCity: app.globalData.startCity,
+      endCity: app.globalData.endCity
     })
   }
 })

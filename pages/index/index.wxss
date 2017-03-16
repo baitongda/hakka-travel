@@ -1,4 +1,6 @@
 /**index.wxss**/
+@import "../components/toast/toast.wxss";
+
 .swiper {
   width: 100%;
 }

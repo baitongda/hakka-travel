@@ -26,6 +26,11 @@ Page({
 	    	{ name: '北理工公交站（往正门方向）'},
 	    	{ name: '北理工公交站（往正门方向）'}
 	    ]
+    },
+    toast: {
+      content: '请选择到达城市及下车地点',
+      iconUrl: '../../../images/warning.png',
+      showToast: false
     }
   },
   onLoad: function () {
@@ -46,6 +51,20 @@ Page({
     // })
   },
   check: function() {
+    // city and station have been selected
+    let that = this;
+    if(that.data.chosenCity == '' || that.data.chosenStation == '') {
+      that.setData({
+        'toast.showToast': true
+      });
+      setTimeout(() => {
+        that.setData({
+          'toast.showToast': false
+        })
+      }, 1000);
+      return;
+    }
+
     wx.navigateBack({
       delta: 1, // 回退前 delta(默认为1) 页面
     })
@@ -61,8 +80,9 @@ Page({
   chooseStation: function(event) {
   	let index = event.target.dataset.index;
   	this.setData({
+      chosenStation: this.data.endStation.stationList[index].name,
   		'endStation.chosenIndex': index
   	});
-   app.globalData.endStation = this.data.chosenCity;
+   app.globalData.endStation = this.data.chosenStation;
   }
 })

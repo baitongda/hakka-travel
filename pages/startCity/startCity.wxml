@@ -1,5 +1,6 @@
 <!--startCity.wxml-->
 <import src="../components/stationList/template.wxml"></import>
+<import src="../components/toast/toast.wxml"></import>
 <view class="container">
 	<view class="title">
 		可选择的出发城市:
@@ -11,4 +12,6 @@
 	
 	<template is="stationList" data="{{...startStation}}"></template> 
 	<view class="default-btn" bindtap="check">车票查询</view>
+
+	<template is="toast" data="{{...toast}}"></template>
 </view>

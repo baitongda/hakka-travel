@@ -1,5 +1,6 @@
 /**endCity.wxss**/
 @import "../components/stationList/style.wxss";
+@import "../components/toast/toast.wxss";
 
 .title {
 	padding: 60rpx 0 0 40rpx;

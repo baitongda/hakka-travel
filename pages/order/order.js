@@ -4,11 +4,7 @@ var app = getApp()
 Page({
   data: {
    	order: {
-   		datetime: '2017-03-13 19:35',
-   		startCity: app.globalData.startCity,
-   		endCity: app.globalData.endCity,
-   		startStation: app.globalData.startStation,
-   		endStation: app.globalData.endStation,
+   		datetime: '2017-03-13 19:35',	
    		normalLeavings: 20,
    		normalPrice: 55,
    		benefitLeavings: 2,
@@ -22,8 +18,13 @@ Page({
    	}
   },
   onLoad: function () {
-    console.log('onLoad')
-    var that = this
+    console.log(app.globalData);
+    this.setData({
+      'order.startCity': app.globalData.startCity,
+      'order.endCity': app.globalData.endCity,
+      'order.startStation': app.globalData.startStation,
+      'order.endStation': app.globalData.endStation,
+    })
   },
   bindInputPassenger(e) {
     this.setData({
@@ -36,7 +37,30 @@ Page({
     })
   },
   goPay() {
-  	 
+    let that = this;
+    wx.showToast({
+      title: '处理中',
+      icon: 'loading'
+    })
+  	wx.request({
+      url: 'https://',
+      data: {
+        order: that.data.order
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }, // 设置请求的 header
+      success: function(res){
+        // success
+      },  
+      complete: function() {
+        // complete
+      }
+    })
+    wx.navigateTo({
+      url: '../result/result'
+    })
   },
   chooseTicketType(e) {
     // 0-normal ticket 1-benefit ticket

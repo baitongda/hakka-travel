@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<import src="../components/toast/toast.wxml"></import>
+
 <view class="container">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoPlay}}"  interval="3000" duration="700">
     <block wx:for="{{imgUrls}}">
@@ -7,8 +9,6 @@
       </swiper-item>
     </block>
   </swiper>
-
-  <!-- <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map> -->
   
   <!-- outer view -->
   <view class="content-wrapper">
@@ -44,4 +44,6 @@
   </view>
   
   <view class="default-btn" bindtap="checkSchedule">立即查询</view>
+
+  <template is="toast" data="{{...toast}}"></template>
 </view>
