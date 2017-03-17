@@ -40,16 +40,16 @@ Page({
     this.data.queryParam = endCity != '请选择到达地点'? 'endCity=' + endCity: 'allStart=1';
     
     // get all start point
-    // wx.request({
-    //   url: 'http://loaclhost:8080/fr/city/list?' + that.data.queryParam,
-    //   header: {
-    //     'Content-Type': 'application/x-www-form-urlencoded'
-    //   },
-    //   method: 'GET',
-    //   success: function(res) {
-    //     console.log(res.data);
-    //   }
-    // })
+     wx.request({
+       url: 'https://localhost:3011/bg/city/list?' + this.data.queryParam,
+       header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+       },
+       method: 'GET',
+       success: function(res) {
+         console.log(res);
+       }
+     })
   },
   check() {
     // city and station have been selected
