@@ -16,6 +16,20 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+const showWxLoading = function(title = '加载中...', icon = 'loading', duration = 10000) {
+  wx.showToast({
+    title: title,
+    icon: icon,
+    duration: duration
+  })
+};
+
+const hideWxLoading = function() {
+  wx.hideToast();
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  showWxLoading: showWxLoading,
+  hideWxLoading: hideWxLoading
 }

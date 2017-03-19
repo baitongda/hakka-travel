@@ -1,8 +1,8 @@
 //index.js
 
-var dateUtil = require('../../utils/date.js');
+const dateUtil = require('../../utils/date.js');
 //获取应用实例
-var app = getApp()
+const app = getApp()
 Page({
   onLoad: function(options) {
       // 监听页面加载 只调用一次
@@ -104,12 +104,12 @@ Page({
   // select city
   selectStartCity() {
     wx.navigateTo({
-      url: '../startCity/startCity',
+      url: '../startCity/startCity'
     })
   },
   selectEndCity() {
     wx.navigateTo({
-      url: '../endCity/endCity',
+      url: '../endCity/endCity'
     })
   },
   checkSchedule(){
@@ -159,4 +159,4 @@ Page({
       endCity: app.globalData.endCity
     })
   }
-})
+});

@@ -1,6 +1,7 @@
 //order.js
 //获取应用实例
-var app = getApp()
+const app = getApp();
+const util = require('../../utils/util.js');
 Page({
   data: {
    	order: {
@@ -38,10 +39,8 @@ Page({
   },
   goPay() {
     let that = this;
-    wx.showToast({
-      title: '处理中',
-      icon: 'loading'
-    })
+    
+    util.showWxLoading('处理中...', 'loading', 1500);
   	wx.request({
       url: 'https://',
       data: {

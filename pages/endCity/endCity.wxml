@@ -7,7 +7,7 @@
 	</view>
 	<view class="city-list">
 		<view class="city-item {{chosenCityIndex == index? 'active': ''}}" wx:for="{{endCityList}}"
-			bindtap="chooseCity" data-index="{{index}}">{{item.name}}</view>
+			bindtap="chooseCity" data-index="{{index}}" data-bus-city-id="{{item.busCityId}}">{{item.name}}</view>
 	</view>
 	
 	<template is="stationList" data="{{...endStation}}"></template>
