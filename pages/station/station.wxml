@@ -1,10 +1,25 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+	<view class="wrapper">
+		<text class="station-title">选择上车地点</text>
+		<view class="station-wrapper">
+			<view class="station-list" wx:for="{{startStationList}}" bindtap="chooseStartStation" data-start-index="{{index}}">
+				<text>{{index + '、' + item.stationName}}</text>
+				<image class="absolute-center-Y img-small-icon img-right-10"
+				src="{{startIndex == index? '../../images/selected.png': '../../images/no_selected.png'}}"></image>
+			</view>
+		</view>
+	</view>
+	<view class="wrapper">
+		<text class="station-title">选择下车地点</text>
+		<view class="station-wrapper">
+			<view class="station-list" wx:for="{{endStationList}}" bindtap="chooseEndStation" data-end-index="{{index}}">
+				<text>{{index + '、 ' + item.stationName}}</text>
+				<image class="absolute-center-Y img-small-icon img-right-10"
+				src="{{endIndex == index? '../../images/selected.png': '../../images/no_selected.png'}}"></image>
+			</view>
+		</view>
+	</view>
+
+	<view class="default-btn" bindtap="check">车次查询</view>
 </view>

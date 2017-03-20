@@ -55,17 +55,17 @@ Page({
     check: function () {
         // city and station have been selected
         let that = this;
-        if (that.data.chosenCity == '' || that.data.chosenStation == '') {
-            that.setData({
-                'toast.showToast': true
-            });
-            setTimeout(() => {
-                that.setData({
-                    'toast.showToast': false
-                })
-            }, 1000);
-            return;
-        }
+        // if (that.data.chosenCity == '' || that.data.chosenStation == '') {
+        //     that.setData({
+        //         'toast.showToast': true
+        //     });
+        //     setTimeout(() => {
+        //         that.setData({
+        //             'toast.showToast': false
+        //         })
+        //     }, 1000);
+        //     return;
+        // }
 
         wx.navigateBack({
             delta: 1 // 回退前 delta(默认为1) 页面
@@ -80,31 +80,31 @@ Page({
         });
         app.globalData.endCity = that.data.chosenCity;
 
-        util.showWxLoading();
+        // util.showWxLoading();
 
         // 获取当前所选城市站点列表
-        let arr = [];
-        wx.request({
-            url: 'https://localhost:3011/fr/station/list?station_type=1&end_city="' + that.data.chosenCity + '"',
-            method: 'GET',
-            success: function(res) {
-                if(res.data.statusCode == 20011011) {
-                    let data = res.data.data;
-                    data.forEach((item) => {
-                        let obj = {};
-                        obj.name = item.station_name;
-                        arr.push(obj);
-                    });
-                    that.setData({
-                        'endStation.stationList': arr
-                    })
+        // let arr = [];
+        // wx.request({
+        //     url: 'https://localhost:3011/fr/station/list?station_type=1&end_city="' + that.data.chosenCity + '"',
+        //     method: 'GET',
+        //     success: function(res) {
+        //         if(res.data.statusCode == 20011011) {
+        //             let data = res.data.data;
+        //             data.forEach((item) => {
+        //                 let obj = {};
+        //                 obj.name = item.station_name;
+        //                 arr.push(obj);
+        //             });
+        //             that.setData({
+        //                 'endStation.stationList': arr
+        //             })
 
-                }
-            },
-            complete: function() {
-                util.hideWxLoading();
-            }
-        })
+        //         }
+        //     },
+        //     complete: function() {
+        //         util.hideWxLoading();
+        //     }
+        // })
     },
     chooseStation: function (event) {
         let index = event.target.dataset.index;

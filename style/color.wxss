@@ -1,0 +1,37 @@
+/**
+ * color classed definition
+ * 
+ */
+
+
+.bgColor-red {
+	background-color: #dc3426;
+}
+
+.bgColor-blue {
+	background-color: #2a92cf;
+}
+
+.bgColor-darkgrey {
+	background-color: #616161;
+}
+
+.bgColor-orange {
+	background-color: #de5246;
+}
+
+.color-red {
+	color: #dc3426;
+}
+
+.color-blue {
+	color: #2a92cf;
+}
+
+.color-darkgrey {
+	color: #616161;
+}
+
+.color-orange {
+	color: #de5246;
+}

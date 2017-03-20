@@ -1,1 +1,77 @@
 /**ticket.wxss**/
+
+.ticket-wrapper {
+	margin-top: 25rpx;
+	padding: 20rpx;
+	background: linear-gradient(to right, green, orange);
+	color: #fff;
+}
+
+.ticket-view {
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+	padding: 20rpx;
+	text-align: center;
+}
+
+.first-view {
+	border-bottom: 2rpx dashed #c3c3c3;
+}
+
+.first-view .first-view-item {
+	flex: 1;
+	text-align: left;
+}
+
+.first-view-item + text {
+	flex: 1;
+	text-align: right;
+}
+
+.second-view {
+	border-bottom: 4rpx solid #333;
+}
+
+.second-view > text{
+	flex: 1;
+}
+
+.third-view >text {
+	flex: 1;
+	font-size: 28rpx;
+}
+
+.fourth-view {
+	border-bottom: 2rpx dashed #c3c3c3;
+	padding: 10rpx;
+}
+
+.fourth-view > text, .fourth-view > view {
+	flex: 1;
+	position: relative;
+	font-size: 30rpx;
+	text-align: left;
+	padding: 10rpx;
+}
+
+.fourth-view > view {
+	text-align: right;
+}
+
+.ticket-btn {
+	height: 50rpx;
+	line-height: 30rpx;
+	padding: 10rpx;
+	border-radius: 10rpx;
+	margin: 0 10rpx;
+	font-size: 28rpx;
+	color: #fff;
+}
+
+.last-view > text {
+	padding: 10rpx;
+	font-size: 30rpx;
+	height: 50rpx;
+	line-height: 40rpx;
+}

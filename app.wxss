@@ -2,6 +2,7 @@
 @import "./style/position.wxss";
 @import "./style/image.wxss";
 @import "./style/button.wxss";
+@import "./style/color.wxss";
 
 .container {
   width: 100%;
@@ -19,4 +20,3 @@ input {
 	padding-left: 15rpx;
 	font-size: 26rpx;
 }
-	

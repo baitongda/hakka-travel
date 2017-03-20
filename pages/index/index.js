@@ -116,35 +116,35 @@ Page({
     let that = this;
     let startCity = this.data.startCity;
     let endCity = this.data.endCity;
-    if(startCity && startCity == '请选择出发地点') {
-      that.setData({
-        'toast.content': '请选择出发地点',
-        'toast.showToast': true
-      });
-      setTimeout(() => {
-        that.setData({
-          'toast.showToast': false
-        })
-      }, 1000);
-      return;
-    }
+    // if(startCity && startCity == '请选择出发地点') {
+    //   that.setData({
+    //     'toast.content': '请选择出发地点',
+    //     'toast.showToast': true
+    //   });
+    //   setTimeout(() => {
+    //     that.setData({
+    //       'toast.showToast': false
+    //     })
+    //   }, 1000);
+    //   return;
+    // }
     
-    if(endCity && endCity == '请选择到达地点') {
-      that.setData({
-        'toast.content': '请选择到达地点',
-        'toast.showToast': true
-      });
-      setTimeout(() => {
-        that.setData({
-          'toast.showToast': false
-        })
-      }, 1000);
-      return;
-    }
+    // if(endCity && endCity == '请选择到达地点') {
+    //   that.setData({
+    //     'toast.content': '请选择到达地点',
+    //     'toast.showToast': true
+    //   });
+    //   setTimeout(() => {
+    //     that.setData({
+    //       'toast.showToast': false
+    //     })
+    //   }, 1000);
+    //   return;
+    // }
     wx.navigateTo({
-      url: '../schedule/schedule',
+      url: '../result/result',
       success: function(res){
-        console.log('navigate to schedule page');
+        console.log('navigate to station page');
       }
     })
   },

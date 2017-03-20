@@ -16,7 +16,7 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
-const showWxLoading = function(title = '加载中...', icon = 'loading', duration = 10000) {
+const showWxLoading = function(title = '加载中...', duration = 10000, icon = 'loading') {
   wx.showToast({
     title: title,
     icon: icon,
@@ -28,8 +28,29 @@ const hideWxLoading = function() {
   wx.hideToast();
 }
 
+const showSelfToast = function(self, duration = 10000, content = '加载中...', iconUrl = '../images/warning.png') {
+    self.setData({
+      'toast.content': content,
+      'toast.iconUrl': iconUrl,
+      'toast.showToast': true
+    });
+    setTimeout(() => {
+      self.setData({
+        'toast.showToast': false
+      })
+    })
+};
+
+const hideSelfToast = function(self) {
+    self.setData({
+      'toast.showToast': false
+    })
+};
+
 module.exports = {
   formatTime: formatTime,
   showWxLoading: showWxLoading,
-  hideWxLoading: hideWxLoading
+  hideWxLoading: hideWxLoading,
+  showSelfToast: showSelfToast,
+  hideSelfToast: hideSelfToast
 }

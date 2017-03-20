@@ -1,4 +1,35 @@
-<!--index.wxml-->
+<!--ticket.wxml-->
 <view class="container">
- 
+ 	<view class="ticket-wrapper" wx:for="{{ticketList}}" wx:key="{{index}}">
+ 		<view class="ticket-view first-view">
+	 		<view class="first-view-item">  
+	 			<text class="color-red">￥{{item.totalPrice}}({{item.totalTicket}}张)</text>
+	 			<text>{{item.payType}}</text>
+	 		</view>
+ 			<text>{{item.date}}</text>
+ 		</view>
+ 		<view class="ticket-view second-view">
+ 			<text>{{item.startCity}}</text>
+ 			<text>{{item.departTime}}</text>
+ 			<text>{{item.endCity}}</text>
+ 		</view>
+ 		<view class="ticket-view third-view">
+ 			<text>{{item.startStation}}</text>
+ 			<text>出发</text>
+ 			<text>{{item.endStation}}</text>
+ 		</view>
+ 		<view class="ticket-view fourth-view">
+ 			<text>向导联系方式</text>
+ 			<view>
+ 				<image src="" class="absolute-center-Y img-small-icon img-left-10"></image>
+ 				<text class="color-blue">{{item.guidePhone}}</text>
+ 			</view>
+ 		</view>
+ 		<view class="ticket-view last-view">
+ 			<view class="ticket-btn bgColor-darkgrey" bindtap="refund" data-order-id="{{item.orderId}}">退票</view>
+ 			<view class="ticket-btn bgColor-blue" bindtap="checkTicket" data-order-id="{{item.orderId}}">验票</view>
+ 			<view class="ticket-btn bgColor-orange" bindtap="goPay" data-order-id="{{item.orderId}}">在线支付</view>
+ 			<text class="absolute-center-Y img-right-20">{{item.status}}</text>
+ 		</view>
+ 	</view>
 </view>

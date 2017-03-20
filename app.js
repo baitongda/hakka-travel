@@ -1,8 +1,19 @@
 //app.js
-var dateUtil = require('./utils/date.js');
+const dateUtil = require('./utils/date.js');
 App({
   onLaunch: function () {
     // 监听小程序初始化,当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
+
+    // 登录，获取并写入用户信息
+    wx.login({
+      success: function(res) {
+        if(res.code) {
+
+        }else {
+          console.log('获取用户登录状态失败！' + res.errMsg);
+        }
+      }
+    })
   },
   onShow: function() {
     // 监听小程序显示,当小程序启动，或从后台进入前台显示，会触发 onShow
@@ -24,7 +35,7 @@ App({
         success: function () {
           wx.getUserInfo({
             success: function (res) {
-              that.globalData.userInfo = res.userInfo
+              that.globalData.userInfo = res.userInfo;
               typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })

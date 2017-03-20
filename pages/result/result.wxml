@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<import src="../../components/toast/toast.wxml"></import>
 <view class="container">
   <view class="result-wrapper">
   	<image src="{{resultImg}}"></image>
@@ -6,6 +7,8 @@
   	<text>对不起，预订不成功，请重新操作！</text>
   </view>
 	
-  <view class="default-btn" wx:if="{{}}" bindtap="goPay">继续支付</view>
+  <view class="default-btn" wx:if="{{1}}" bindtap="goPay">继续支付</view>
   <view class="default-btn" bindtap="orderDetail">订单详情</view>
+
+  <template is="toast" data="{{...data}}"></template>
 </view>
