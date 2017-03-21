@@ -3,7 +3,16 @@
 <import src="../components/toast/toast.wxml"></import>
 <view class="container">
 	<view class="title">
-		可选择的出发城市:
+		当前城市
+	</view>
+	<view class="city-list">
+		<view class="city-item">
+		{{currentCity}}
+		</view>
+	</view>
+	
+	<view class="title select-title">
+		可选择的出发城市
 	</view>
 	<view class="city-list">
 		<view class="city-item {{chosenCityIndex == index? 'active': ''}}" wx:for="{{startCityList}}" wx:key="{{index}}"

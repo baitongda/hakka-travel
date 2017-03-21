@@ -4,7 +4,7 @@
 		<text class="station-title">选择上车地点</text>
 		<view class="station-wrapper">
 			<view class="station-list" wx:for="{{startStationList}}" bindtap="chooseStartStation" data-start-index="{{index}}">
-				<text>{{index + '、' + item.stationName}}</text>
+				<text>{{index + '、' + item.station_name}}</text>
 				<image class="absolute-center-Y img-small-icon img-right-10"
 				src="{{startIndex == index? '../../images/selected.png': '../../images/no_selected.png'}}"></image>
 			</view>
@@ -14,7 +14,7 @@
 		<text class="station-title">选择下车地点</text>
 		<view class="station-wrapper">
 			<view class="station-list" wx:for="{{endStationList}}" bindtap="chooseEndStation" data-end-index="{{index}}">
-				<text>{{index + '、 ' + item.stationName}}</text>
+				<text>{{index + '、 ' + item.station_name}}</text>
 				<image class="absolute-center-Y img-small-icon img-right-10"
 				src="{{endIndex == index? '../../images/selected.png': '../../images/no_selected.png'}}"></image>
 			</view>

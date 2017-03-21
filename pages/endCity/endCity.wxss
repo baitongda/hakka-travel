@@ -8,11 +8,16 @@
 	color: #333;
 }
 
+
+.select-title {
+	padding-top: 30rpx;
+}
+
 .city-list {
 	display: flex;
 	flex-flow: row wrap;
 	width: 100%;
-	padding: 40rpx 20rpx;
+	padding: 30rpx 20rpx;
 }
 
 .city-item {

@@ -28,7 +28,7 @@ const hideWxLoading = function() {
   wx.hideToast();
 }
 
-const showSelfToast = function(self, duration = 10000, content = '加载中...', iconUrl = '../images/warning.png') {
+const showSelfToast = function(self, duration = 10000, content = '加载中...', iconUrl = '../../images/warning.png') {
     self.setData({
       'toast.content': content,
       'toast.iconUrl': iconUrl,
@@ -38,7 +38,7 @@ const showSelfToast = function(self, duration = 10000, content = '加载中...',
       self.setData({
         'toast.showToast': false
       })
-    })
+    }, duration);
 };
 
 const hideSelfToast = function(self) {

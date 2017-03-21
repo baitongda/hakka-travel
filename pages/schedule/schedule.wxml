@@ -1,12 +1,12 @@
 <!--schedule.wxml-->
 <view class="container">
   <view class="top-wrapper">
-  	<view class="date-btn">前一天</view>
+  	<view class="date-btn" bindtap="preDate">前一天</view>
   	<view class="date-title">
   		<image class="absolute-center-Y img-small-icon icon-cal" src="../../images/calander.png"></image>
   		<text>{{curDate}}</text>
   	</view>
-  	<view class="date-btn">后一天</view>
+  	<view class="date-btn" bindtap="nextDate">后一天</view>
   </view>
   
   <view wx:for="{{scheduleList}}" wx:key="{{index}}" bindtap="booking" data-schedule="{{item}}"

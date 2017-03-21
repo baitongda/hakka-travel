@@ -75,16 +75,7 @@ Page({
                             if (res.errMsg == 'requestPayment:fail cancel') {
                                 util.showWxLoading('已取消支付！', 1500, 'success');
                             } else {
-                                util.showSelfToast(that, 1500, '支付失败！')
-                                // that.setData({
-                                //     'toast.showToast': true,
-                                //     'toast.content': '支付失败！'
-                                // });
-                                // setTimeout(() => {
-                                //     that.setData({
-                                //         'toast.showLoading': false
-                                //     })
-                                // }, 1500)
+                                util.showSelfToast(that, 1500, '支付失败！');
                             }
                         }
                     })

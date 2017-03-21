@@ -1,6 +1,7 @@
 //index.js
 
 const dateUtil = require('../../utils/date.js');
+const util = require('../../utils/util.js');
 //获取应用实例
 const app = getApp()
 Page({
@@ -10,40 +11,26 @@ Page({
   onReady: function() {
     let that = this;
       // 监听页面初次渲染完成 (初始化数据)
-      // wx.showToast({
-      //   title: '正在获取当前地理位置...',
-      //   icon: 'loading',
-      //   duration: 10000
-      // })
-      // wx.getLocation({
-      //   type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
-      //   success: function(res){
-      //     // success
-      //     console.log('latitude: ' + res.latitude + '    longitude:' + res.longitude + ' accuracy: ' + res.accuracy);
-      //     let location = res.latitude + ',' + res.longitude;
-      //     wx.request({
-      //       url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + location + '&key=MSIBZ-OMPE4-GNOUA-XD3ON-OH6Q5-FSBAX',
-      //       data: {},
-      //       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      //       // header: {}, // 设置请求的 header
-      //       success: function(res){
-      //         console.log(res);
-      //         that.setData({
-      //           startCity: res.data.result.ad_info.city.split('市')[0]
-      //         })
-      //         wx.setStorage({
-      //           key: 'startCity',
-      //           data: Object/String,
-      //           success: function(res){
-      //           }
-      //         })
-      //       },
-      //       complete: function() {
-      //         wx.hideToast();
-      //       }
-      //     })
-      //   },
-      // })
+      util.showWxLoading('正在获取当前地理位置...');
+      wx.getLocation({
+        type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
+        success: function(res){
+          let location = res.latitude + ',' + res.longitude;
+          wx.request({
+            url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + location + '&key=MSIBZ-OMPE4-GNOUA-XD3ON-OH6Q5-FSBAX',
+            method: 'GET', 
+            success: function(res){
+              that.setData({
+                startCity: res.data.result.ad_info.city.split('市')[0]
+              });
+              app.globalData.currentCity = app.globalData.startCity = that.data.startCity;
+            },
+            complete: function() {
+              util.hideWxLoading();
+            }
+          })
+        }
+      })
   },
   onShow: function() {
     // 监听页面显示，每次打开都会调用
@@ -80,9 +67,9 @@ Page({
     ],
     indicatorDots: true,
     autoPlay: true,
-    selectedDate: dateUtil.getToday(),
-    startDate: dateUtil.getToday(),
-    endDate: dateUtil.getEndDate(),
+    selectedDate: dateUtil.getToday().onlyDate,
+    startDate: dateUtil.getToday().onlyDate,
+    endDate: dateUtil.getEndDate().onlyDate,
     startCity: app.globalData.startCity,
     endCity: app.globalData.endCity,
     toast: {
@@ -93,12 +80,19 @@ Page({
   },
   // date picker
   changeDate(e) {
-    console.log('selected date: ' + e.detail.value);
+    //console.log('selected date: ' + e.detail.value);
     let date = e.detail.value;
+    let nextDate = dateUtil.addOneDay(date);
     this.setData({
       selectedDate: date
-    })
-    app.globalData.date = date;
+    });
+    // 所选日期是否为今天
+    if(dateUtil.isToday(date)) {
+      app.globalData.curDate = dateUtil.getNow();
+    }else {
+      app.globalData.curDate = dateUtil.setTimeFrom0Hour(date).getTime();
+    }
+    app.globalData.nextDate = nextDate;
   },
 
   // select city
@@ -116,36 +110,17 @@ Page({
     let that = this;
     let startCity = this.data.startCity;
     let endCity = this.data.endCity;
-    // if(startCity && startCity == '请选择出发地点') {
-    //   that.setData({
-    //     'toast.content': '请选择出发地点',
-    //     'toast.showToast': true
-    //   });
-    //   setTimeout(() => {
-    //     that.setData({
-    //       'toast.showToast': false
-    //     })
-    //   }, 1000);
-    //   return;
-    // }
+    if(startCity && startCity == '请选择出发地点') {
+      util.showSelfToast(that, 1000, '请选择出发地点');
+      return;
+    }
     
-    // if(endCity && endCity == '请选择到达地点') {
-    //   that.setData({
-    //     'toast.content': '请选择到达地点',
-    //     'toast.showToast': true
-    //   });
-    //   setTimeout(() => {
-    //     that.setData({
-    //       'toast.showToast': false
-    //     })
-    //   }, 1000);
-    //   return;
-    // }
+    if(endCity && endCity == '请选择到达地点') {
+      util.showSelfToast(that, 1000, '请选择到达地点');
+      return;
+    }
     wx.navigateTo({
-      url: '../result/result',
-      success: function(res){
-        console.log('navigate to station page');
-      }
+      url: '../station/station'
     })
   },
   exchangeCity() {  // 出发、到达城市互换

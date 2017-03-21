@@ -44,10 +44,12 @@ App({
     }
   },
   globalData:{
+    currentCity: '',
     startCity: '请选择出发地点',
     endCity: '请选择到达地点',
     startStation: '',
     endStation: '',
-    date: dateUtil.getToday()
+    curDate: dateUtil.getToday().getTime,
+    nextDate: dateUtil.addOneDay(new Date().getTime()).getTime
   }
-})
+});
