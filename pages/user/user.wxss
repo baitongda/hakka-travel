@@ -1,1 +1,28 @@
 /**user.wxss**/
+
+.avatar-wrapper {
+	position: relative;
+	height: 400rpx;
+	background-color: #c3c3c3;
+}
+
+.avatar-img {
+
+}
+
+.content-wrapper {
+	margin-top: 20rpx;
+}
+
+.content-wrapper view {
+	position: relative;
+	padding: 10rpx 20rpx;
+	height: 100rpx;
+	line-height: 80rpx;
+	border-bottom: 2rpx solid #c3c3c3;
+}
+
+.content-wrapper text {
+	margin-left: 50rpx;
+}
+

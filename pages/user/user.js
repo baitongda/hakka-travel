@@ -3,7 +3,7 @@
 var app = getApp()
 Page({
   data: {
-
+  	avatarUrl: '../../images/warning.png'
   },
   onLoad: function () {
    

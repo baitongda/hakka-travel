@@ -1,22 +1,22 @@
 <!--user.wxml-->
 <view class="container">
   <view class="avatar-wrapper">
-  	<imgae src="{{avatarUrl}}" class="absolute-center-XY img-large-size avatar-img"></imgae>
+  	<image src="{{avatarUrl}}" class="absolute-center-XY img-large-size avatar-img"></image>
   </view>
 
   <view class="content-wrapper">
   	<view>
-  		<image class="absolute-center-Y img-small-icon" src="../../images/.png"></image>
+  		<image class="absolute-center-Y img-small-icon" src="../../images/orders.png"></image>
   		<text>我的订单</text>
   		<image class="absolute-center-Y img-small-icon img-right-20" src="../../images/right_dot.png"></image>
   	</view>
   	<view>
-  		<image class="absolute-center-Y img-small-icon"></image>
+  		<image class="absolute-center-Y img-small-icon" src="../../images/orders.png"></image>
   		<text>我的优惠券</text>
   		<image class="absolute-center-Y img-small-icon img-right-20" src="../../images/right_dot.png"></image>
   	</view>
   	<view>
-  		<image class="absolute-center-Y img-small-icon" src="../../images/.png"></image>
+  		<image class="absolute-center-Y img-small-icon" src="../../images/orders.png"></image>
   		<text>购票须知</text>
   		<image class="absolute-center-Y img-small-icon img-right-20" src="../../images/right_dot.png"></image>
   	</view>
