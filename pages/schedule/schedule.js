@@ -2,6 +2,7 @@
 //获取应用实例
 const dateUtil = require('../../utils/date.js');
 const util = require('../../utils/util.js');
+const booking = require('../../filters/booking.js');
 const app = getApp();
 Page({
     data: {
@@ -12,7 +13,6 @@ Page({
         // 获取所有车次信息
         let that = this;
         let globalData = app.globalData;
-
         that.setData({
             curDate: dateUtil.formatDate(globalData.curDate).dateWithWeek,
             scheduleDate: globalData.curDate,
@@ -24,7 +24,7 @@ Page({
         util.showWxLoading();
         wx.request({
             url: 'https://localhost:3011/fr/schedule/list?startCity=' + that.data.startCity + '&endCity=' + that.data.endCity +
-            '&scheduleDate=' + that.data.scheduleDate + '&stationName=北理工公交站' /*+ that.data.startStation*/ + '&nextDate=' + that.data.nextDate,
+            '&scheduleDate=' + that.data.scheduleDate + '&stationName=' + that.data.startStation + '&nextDate=' + that.data.nextDate,
             method: 'GET',
             success: function (res) {
                 if (res.data.statusCode == 20011011) {
@@ -32,11 +32,12 @@ Page({
                     let arr = [];
                     data.forEach((item) => {
                         let obj = {
+                        	scheduleId: item.bus_sche_id,
                             time: item.depart_time,
                             startStation: item.start_station,
                             endStation: item.end_station,
-                            benefitTicket: item.benefit_ticket,
-                            normalTicket: item.normal_ticket
+                            benefitTicket: booking(1, item.benefit_ticket, item.benefit_price),
+                            normalTicket: booking(0, item.normal_ticket, item.normal_price)
                         };
                         arr.push(obj);
                     });
@@ -50,9 +51,9 @@ Page({
             }
         })
     },
-    booking() {
+    booking(e) {
         wx.navigateTo({
-            url: '../order/order?scheduleId='
+            url: '../order/order?scheduleId=' + e.currentTarget.detail.scheduleId
         })
     },
     preDate() {

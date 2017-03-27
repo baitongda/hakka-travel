@@ -13,11 +13,12 @@ Page({
 
         // 获取所有未使用订单
         wx.request({
-            url: 'https://localhost:3011/fr/order/list?',
+            url: 'https://localhost:3011/fr/order/unuseOrder?',
             method: 'GET',
             success: function (res) {
+                console.log(res);
                 if (res.data.statusCode == 20011011) {
-                    let data = res.data.data;
+                    let data = res.data.data; 
                     let arr = [];
                     data.forEach((item) => {
                         console.log(item);
@@ -81,7 +82,7 @@ Page({
     },
     goPay(e) {
         let orderId = e.currentTarget.dataset.orderId;
-        util.showWxLoading('处理中...', 1500);
+        util.showWxLoading('处理中...', 1500); 
         wx.request({
             url: 'https://localhost:3011/fr/order/pay',
             header: {

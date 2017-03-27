@@ -13,11 +13,6 @@ Page({
             chosenIndex: -1,
             stationTitle: '选择上车地点',
             stationList: []
-        },
-        toast: {
-            content: '请选择出发城市及上车地点',
-            iconUrl: '../../../images/warning.png',
-            showToast: false
         }
     },
     onLoad() {
@@ -60,7 +55,6 @@ Page({
         })
     },
     chooseCity(event) {
-        console.log(event);
         let that = this;
         let index = event.target.dataset.index;
         let busCityId = event.target.dataset.busCityId;

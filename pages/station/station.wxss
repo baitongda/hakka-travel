@@ -1,5 +1,7 @@
 /**station.wxss**/
 
+@import "../components/toast/toast.wxss";
+
 .wrapper {
 	padding: 40rpx 20rpx;
 }

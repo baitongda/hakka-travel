@@ -14,11 +14,6 @@ Page({
             chosenIndex: -1,
             stationTitle: '选择下车地点',
             stationList: []
-        },
-        toast: {
-            content: '请选择到达城市及下车地点',
-            iconUrl: '../../../images/warning.png',
-            showToast: false
         }
     },
     onLoad: function () {

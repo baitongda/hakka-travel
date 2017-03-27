@@ -9,7 +9,10 @@
     "pages/schedule/schedule",
     "pages/station/station",
     "pages/ticket/ticket",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/myOrder/myOrder",
+    "pages/myCoupon/myCoupon",
+    "pages/notice/notice"
   ],
   "window":{
     "backgroundTextStyle":"light",

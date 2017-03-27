@@ -17,7 +17,7 @@
         <view class="city-selection">
           <view class="start-city" bindtap="selectStartCity">
             <image src="../../images/location_start.png" class="absolute-center-Y img-small-icon "></image>
-            <text>{{startCity}}</text>
+            <text>{{startCity}}</text> 
             <image src="../../images/right_dot.png" class="absolute-center-Y img-small-icon img-right-20"></image>
           </view>
           <view class="end-city" bindtap="selectEndCity">
@@ -25,7 +25,7 @@
             <text>{{endCity}}</text>
             <image src="../../images/right_dot.png" class="absolute-center-Y img-small-icon img-right-20"></image>
           </view>
-        </view>
+        </view> 
         <view class="exchange-btn" bindtap="exchangeCity">
           <image src="../../images/change_icon.png" class="absolute-center-XY img-default-size"></image>
         </view>

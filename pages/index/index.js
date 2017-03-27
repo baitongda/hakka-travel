@@ -72,11 +72,6 @@ Page({
     endDate: dateUtil.getEndDate().onlyDate,
     startCity: app.globalData.startCity,
     endCity: app.globalData.endCity,
-    toast: {
-      content: '',
-      iconUrl: '../../../images/warning.png',
-      showToast: false
-    }
   },
   // date picker
   changeDate(e) {

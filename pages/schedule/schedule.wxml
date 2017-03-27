@@ -9,7 +9,7 @@
   	<view class="date-btn" bindtap="nextDate">后一天</view>
   </view>
   
-  <view wx:for="{{scheduleList}}" wx:key="{{index}}" bindtap="booking" data-schedule="{{item}}"
+  <view wx:for="{{scheduleList}}" wx:key="{{index}}" bindtap="booking" data-schedule-id="{{item.bus_sche_id}}"
   	class="schedule-list">
   	<view class="line-msg">
   		<view>

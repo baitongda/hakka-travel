@@ -1,10 +1,11 @@
 <!--index.wxml-->
+<import src="../components/toast/toast.wxml"></import>
 <view class="container">
 	<view class="wrapper">
 		<text class="station-title">选择上车地点</text>
 		<view class="station-wrapper">
 			<view class="station-list" wx:for="{{startStationList}}" bindtap="chooseStartStation" data-start-index="{{index}}">
-				<text>{{index + '、' + item.station_name}}</text>
+				<text>{{(index+1) + '、' + item.station_name}}</text>
 				<image class="absolute-center-Y img-small-icon img-right-10"
 				src="{{startIndex == index? '../../images/selected.png': '../../images/no_selected.png'}}"></image>
 			</view>
@@ -14,7 +15,7 @@
 		<text class="station-title">选择下车地点</text>
 		<view class="station-wrapper">
 			<view class="station-list" wx:for="{{endStationList}}" bindtap="chooseEndStation" data-end-index="{{index}}">
-				<text>{{index + '、 ' + item.station_name}}</text>
+				<text>{{(index+1) + '、 ' + item.station_name}}</text>
 				<image class="absolute-center-Y img-small-icon img-right-10"
 				src="{{endIndex == index? '../../images/selected.png': '../../images/no_selected.png'}}"></image>
 			</view>
@@ -22,4 +23,6 @@
 	</view>
 
 	<view class="default-btn" bindtap="check">车次查询</view>
+
+	<template is="toast" data="{{...toast}}"></template>
 </view>

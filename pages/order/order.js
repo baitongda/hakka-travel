@@ -19,7 +19,6 @@ Page({
         }
     },
     onLoad: function () {
-        console.log(app.globalData);
         this.setData({
             'order.startCity': app.globalData.startCity,
             'order.endCity': app.globalData.endCity,
@@ -39,55 +38,75 @@ Page({
     },
     goPay() {
         let that = this;
-
-        util.showWxLoading('处理中...', 1500);
-        wx.request({
-            url: 'https://localhost:3011/fr/order/pay',
-            data: {
-                order: that.data.order
-            },
-            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-            header: {
-                'Content-Type': 'application/json'
-            }, // 设置请求的 header
-            success: function (res) {
-                if (res.data.statusCode == 20011011) {
-                    let data = res.data.data;
-                    paymentObj = {
-                        timeStamp: data.timeStamp,
-                        nonceStr: data.nonceSte,
-                        package: data.package,
-                        paySign: data.paySign
-                    }
-
-                    util.showWxLoading('正在支付', 1000);
-                    wx.requestPayment({
-                        timeStamp: paymentObj.timeStamp,
-                        nonceStr: paymentObj.nonceStr,
-                        package: paymentObj.package,
-                        signType: 'MD5',
-                        paySign: paymentObj.paySign,
-                        success: function (res) {
-                            // success
-                            util.showWxLoading('支付成功！', 1500, 'success');
-                        },
-                        fail: function (res) {
-                            if (res.errMsg == 'requestPayment:fail cancel') {
-                                util.showWxLoading('已取消支付！', 1500, 'success');
-                            } else {
-                                util.showSelfToast(that, 1500, '支付失败！');
-                            }
+        if(that.data.order.payType == 0) {
+            util.showWxLoading('处理中...', 1500);
+            wx.request({
+                url: 'https://localhost:3011/fr/order/pay',
+                data: {
+                    order: that.data.order
+                },
+                method: 'POST', 
+                header: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }, 
+                success: function (res) {
+                    if (res.data.statusCode == 20011011) {
+                        let data = res.data.data;
+                        paymentObj = {
+                            timeStamp: data.timeStamp,
+                            nonceStr: data.nonceSte,
+                            package: data.package,
+                            paySign: data.paySign
                         }
-                    })
+
+                        util.showWxLoading('正在支付', 1000);
+                        wx.requestPayment({
+                            timeStamp: paymentObj.timeStamp,
+                            nonceStr: paymentObj.nonceStr,
+                            package: paymentObj.package,
+                            signType: 'MD5',
+                            paySign: paymentObj.paySign,
+                            success: function (res) {
+                                util.showWxLoading('支付成功！', 1500, 'success');
+                                setTimeout(() => {
+                                    wx.navigateTo({
+                                        url: '../result/result'
+                                    })
+                                }, 1500);            
+                            },
+                            fail: function (res) {
+                                if (res.errMsg == 'requestPayment:fail cancel') {
+                                    util.showWxLoading('已取消支付！', 1500, 'success');
+                                } else {
+                                    util.showSelfToast(that, 1500, '支付失败！');
+                                }
+                            }
+                        })
+                    }
+                },
+            })
+        }else {
+            wx.request({
+                url: 'https://localhost:3011/fr/order/place/normal',
+                data: {
+                    order: that.data.order
+                },
+                method: 'POST',
+                header: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }, 
+                success: function(res) {
+                    if(res.data.statusCode == 20011011) {
+                        let orderId = res.data.data.orderId;
+                        setTimeout(() => {
+                            wx.navigateTo({
+                                url: '../result/result?orderId=' + orderId
+                            })
+                        }, 1500); 
+                    }    
                 }
-            },
-            complete: function () {
-                // complete
-            }
-        })
-        wx.navigateTo({
-            url: '../result/result'
-        })
+            })  
+        }
     },
     chooseTicketType(e) {
         // 0-normal ticket 1-benefit ticket

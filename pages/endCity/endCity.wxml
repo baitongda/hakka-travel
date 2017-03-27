@@ -1,5 +1,4 @@
 <!--endCity.wxml-->
-<!--<import src="../components/stationList/template.wxml"></import>-->
 <import src="../components/toast/toast.wxml"></import>
 <view class="container">
 	<view class="title">
@@ -18,8 +17,6 @@
 		<view class="city-item {{chosenCityIndex == index? 'active': ''}}" wx:for="{{endCityList}}" wx:key="{{index}}"
 			bindtap="chooseCity" data-index="{{index}}" data-bus-city-id="{{item.busCityId}}">{{item.name}}</view>
 	</view>
-	
-	<!--<template is="stationList" data="{{...endStation}}"></template>-->
 	
 	<view class="default-btn" bindtap="check">车票查询</view>
 

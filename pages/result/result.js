@@ -3,15 +3,33 @@
 const app = getApp();
 const util = require('../../utils/util.js');
 Page({
-    onLoad: function () {
+    data: {
+        resultImg: '../../images/selected.png',
+        orderDetail: {
+
+        }
+    },
+    onLoad: function (options) {
         var that = this
+        wx.request({  
+            url: 'https://localhost:3011/fr/order/detail?orderId=' + options.orderId,
+            method: 'GET',
+            header: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }, 
+            success: function(res) {
+                if(res.data.statusCode == 20011011) {
+                    that.data.orderDetail = res.data.data;
+                }
+            }
+        })
     },
     goPay() {
         let that = this;
         let paymentObj = {};
         util.showWxLoading('处理中...', 1500);
         wx.request({
-            url: 'https://',
+            url: 'https://localhost:3011/fr/order/pay',
             data: {},
             method: 'POST',
             success: function (res) {

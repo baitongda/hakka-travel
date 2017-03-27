@@ -55,6 +55,10 @@ Page({
     app.globalData.endStation = this.data.endStationList[chosenIndex].startion_name;
   },
   check() {
+    if(this.data.startIndex === -1 || this.data.endIndex === -1) {
+        util.showSelfToast(this, 1000, '请选择出发/到达站点');
+        return;
+    }
   	wx.navigateTo({
   		url: '../schedule/schedule'
   	})
