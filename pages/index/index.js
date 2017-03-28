@@ -15,6 +15,7 @@ Page({
       wx.getLocation({
         type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
         success: function(res){
+          console.log(res); 
           let location = res.latitude + ',' + res.longitude;
           wx.request({
             url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + location + '&key=MSIBZ-OMPE4-GNOUA-XD3ON-OH6Q5-FSBAX',
